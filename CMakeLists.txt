@@ -23,6 +23,10 @@ endif()
 idf_component_register(SRCS "src/platforms/esp32/esp32_i2s_parallel_dma.cpp" "src/ESP32-HUB75-MatrixPanel-I2S-DMA.cpp" "src/ESP32-HUB75-MatrixPanel-leddrivers.cpp" ${extra_srcs}
                        INCLUDE_DIRS "./src"
                        )
+target_compile_options(${COMPONENT_LIB} INTERFACE
+    -Wno-error=reorder
+)
+
 
 # Dependencies cannot be added to the REQUIRES argument of `idf_component_register` because (according to the build process
 # listed at https://docs.espressif.com/projects/esp-idf/en/v4.2/esp32/api-guides/build-system.html#build-process)
